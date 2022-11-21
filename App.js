@@ -239,7 +239,7 @@ app.post('/upload', upload.array('Image', 20), async (req, res, next) => {
 
                 // await client.db("test").collection("ldate_sdates").updateOne({ name: 'yes' }, { $set: { LatestDate: Date.now() } });
                 if (udate < Dates[0].StartDate) {
-                    await client.db("test").collection("googledate").updateOne({ name: 'yes' }, { $set: { StartDate: udate } });
+                    await client.db("test").collection("googledates").updateOne({ name: 'yes' }, { $set: { StartDate: udate } });
                 }
             }
         } catch (err) {
