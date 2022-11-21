@@ -413,9 +413,9 @@ app.get('/dammy', async (req, res) => {
 
 
 //Listen Port-----------------------------------------------------------------------
-const WORKERS = process.env.WEB_CONCURRENCY || 5;
+//const WORKERS = process.env.WEB_CONCURRENCY || 5;
 if (cluster.isMaster) {
-    for (var i = 0; i < WORKERS; i++) {
+    for (var i = 0; i < 5; i++) {
         cluster.fork();
     }
 
