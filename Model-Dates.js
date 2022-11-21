@@ -6,4 +6,4 @@ var DateSchema = new mongoose.Schema({
     StartDate :Date
 });
 
-module.exports = GoogleDate= mongoose.model('googledate',DateSchema);
+module.exports = GoogleDate= mongoose.model('googledates',DateSchema);

@@ -199,7 +199,7 @@ app.post('/upload', upload.array('Image', 20), async (req, res, next) => {
 
     //console.log(req.body.Date);
     udate = new Date(req.body.Date)
-    //console.log(udate);
+    console.log(udate);
 
     await find_and_set_dates();
     await dataupload(req, res);
@@ -209,6 +209,9 @@ app.post('/upload', upload.array('Image', 20), async (req, res, next) => {
     async function find_and_set_dates() {
         try {
             Dates = await GoogleDate.find()
+            console.log("this is Startdate", Dates[0].StartDate);
+            console.log("this is Latest", Dates[0].LatestDate);
+
             if (Dates.length < 1) {
                 try {
                     const da = new GoogleDate({
@@ -224,13 +227,14 @@ app.post('/upload', upload.array('Image', 20), async (req, res, next) => {
             } else {
 
                 if (udate > Dates[0].LatestDate) {
-                    client.readPreference()
 
-
-                    await client.db("test").collection("googledate").updateOne({ name: 'yes' }, { $set: { LatestDate: udate } });
+console.log("this is if block");
+                    await client.db("test").collection("googledates").updateOne({ name: 'yes' }, { $set: { LatestDate: udate } });
                 } else {
+                    console.log("this is else block");
 
-                    await client.db("test").collection("googledate").updateOne({ name: 'yes' }, { $set: { LatestDate: Dates[0].LatestDate } });
+
+                    await client.db("test").collection("googledates").updateOne({ name: 'yes' }, { $set: { LatestDate: Dates[0].LatestDate } });
                 }
 
 
