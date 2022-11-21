@@ -176,7 +176,7 @@ app.get('/', async (req, res) => {
         await alldata.forEach(async data => {
 
             //creating api
-            da = { profile_url: `https://drive.google.com/uc?export=view&id=${data.image}`, id: data._id }
+            da = { src: `https://drive.google.com/uc?export=view&id=${data.image}`, id: data._id }
             //console.log(da)
             urls.push(da)
 
