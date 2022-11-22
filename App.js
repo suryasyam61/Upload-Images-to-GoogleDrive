@@ -199,10 +199,10 @@ app.post('/upload', upload.array('Image', 10), async (req, res, next) => {
 
     //console.log(req.body.Date);
     udate = new Date(req.body.Date)
-    console.log(udate);
+    //console.log(udate);
 
     await find_and_set_dates();
-    console.log("this is after setdate");
+
     await dataupload(req, res);
     return res.send("Succesfully uploded")
 
@@ -252,15 +252,15 @@ app.post('/upload', upload.array('Image', 10), async (req, res, next) => {
     async function dataupload(req, res) {
 
         await req.files.forEach(file => {
-            console.log("this is for each");
+
             process(file);
         })
 
 
         async function process(file) {
-            console.log("this is process");
+
             const id = await google(file);
-            console.log("this is after google");
+          
             await encoding(id);
             await mongo(id,file);
         }
@@ -330,9 +330,15 @@ app.post('/upload', upload.array('Image', 10), async (req, res, next) => {
         fs.rm(path.join(__dirname, 'uploads'), { recursive: true }, () => {
             // console.log("Folder Deleted!");
             fs.mkdir(path.join(__dirname, 'uploads'),
-                { recursive: true }, (err) => {
+                { recursive: true,
+                 }, (err) => {
                     if (err) {
                         return console.error(err);
+                    }else{
+                        fs.writeFile(path.join(__dirname,'uploads/dammy.txt'), 'this is dammy file', function (err) {
+                            if (err) throw err;
+                           // console.log('File is created successfully.');
+                          });
                     }
                     //console.log('Directory created successfully!');
                 });
