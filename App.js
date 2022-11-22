@@ -195,7 +195,7 @@ app.get('/', async (req, res) => {
 
 
 //Post Method--------------------------------------------------------------------------
-app.post('/upload', upload.array('Image', 20), async (req, res, next) => {
+app.post('/upload', upload.array('Image', 10), async (req, res, next) => {
 
     //console.log(req.body.Date);
     udate = new Date(req.body.Date)
