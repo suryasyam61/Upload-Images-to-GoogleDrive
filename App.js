@@ -204,7 +204,7 @@ app.post('/upload', upload.array('Image', 10), async (req, res, next) => {
     await find_and_set_dates();
 
     await dataupload(req, res);
-    return res.send("Succesfully uploded")
+    return res.send("Succesfully uploaded")
 
     // update the MongoDB Date depending on what you got a date through the user
     async function find_and_set_dates() {
