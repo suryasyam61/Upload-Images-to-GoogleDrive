@@ -277,7 +277,7 @@ app.post('/upload', upload.array('Image', 20), async (req, res, next) => {
                     },
                     media: {
                         mimetype: 'image/jpg',
-                        body: fs.createReadStream(path.join(__dirname + '/uploads/' + file.filename))
+                        body: fs.createReadStream(path.join(__dirname , '/uploads/' , file.filename))
                     }
                 })
 
