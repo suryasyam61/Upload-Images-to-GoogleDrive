@@ -47,10 +47,10 @@ const client = new MongoClient('mongodb+srv://Vishesh:Vishesh@cluster0.evghetg.m
 //*****************************************************************Google Drive Details and Connections******************************************************************* */
 // Details of GoogleDrive----------------------------------------------------------
 const CLIENT_ID = '174935406124-j9b97bs7f63mnnplp0vffbf5n2u8p7p0.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
+const CLIENT_SECRET = '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';
 const REDIRECT_URL = 'https://developers.google.com/oauthplayground';
 
-const REFRESH_TOKET = '1//04FbhVgr4gs-DCgYIARAAGAQSNwF-L9Ir5FQ6ZI6u28l5T3out6IMl6d9tm0W_5YO_gdr7evZ83MMjnl0HJ-pDLBMM4CFV5qtx00'
+const REFRESH_TOKET = '1//04jdVHz_KkK2cCgYIARAAGAQSNwF-L9IrvELmBy1IY58gcXJjFZ9FXGt0YWe3JxR8ProxYULeD8uAJznULhN2SH_3mHLqXFWfBXE'
 
 
 
