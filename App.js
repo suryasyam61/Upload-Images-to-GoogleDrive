@@ -12,7 +12,6 @@ const MongoClient = require('mongodb').MongoClient
 require('dotenv/config');
 const cors = require('cors');
 const cluster = require('node:cluster');
-var validateDate = require("validate-date");
 const BSON = require("bson");
 const localport=3300;
 
