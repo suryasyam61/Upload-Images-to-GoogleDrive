@@ -12,7 +12,6 @@ const MongoClient = require('mongodb').MongoClient
 require('dotenv/config');
 const cors = require('cors');
 const cluster = require('node:cluster');
-var validateDate = require("validate-date");
 const BSON = require("bson");
 const localport=3300;
 
@@ -46,11 +45,11 @@ const client = new MongoClient('mongodb+srv://Vishesh:Vishesh@cluster0.evghetg.m
 
 //*****************************************************************Google Drive Details and Connections******************************************************************* */
 // Details of GoogleDrive----------------------------------------------------------
-const CLIENT_ID = '941919090933-k37el4bg902qs99r2tcak5cih7h4nire.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
+const CLIENT_ID = '174935406124-j9b97bs7f63mnnplp0vffbf5n2u8p7p0.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
 const REDIRECT_URL = 'https://developers.google.com/oauthplayground';
 
-const REFRESH_TOKET = '1//04Y5TRsHbXVXwCgYIARAAGAQSNwF-L9IrKRwsqSw9BhDmdN9mQf24tt6iDY0uk27FZXXV0_yAn6xuas2jd62Kxt05GyKpyILUHT4'
+const REFRESH_TOKET = '1//04FbhVgr4gs-DCgYIARAAGAQSNwF-L9Ir5FQ6ZI6u28l5T3out6IMl6d9tm0W_5YO_gdr7evZ83MMjnl0HJ-pDLBMM4CFV5qtx00'
 
 
 
@@ -81,8 +80,10 @@ const Storage = multer.diskStorage({
         cb(null, 'uploads')
     },
     filename: (req, file, cb) => {
+        //console.log(filename)
         cb(null, file.fieldname + '-' + Date.now() + ".png")
     }
+
 });
 
 
@@ -443,7 +444,7 @@ if (cluster.isMaster) {
     app.listen(process.env.PORT || localport, err => {
         if (err)
             throw err
-        //console.log('Server listening on port', localport)
+        console.log('Server listening on port', localport)
     })
 }
 
